@@ -1,0 +1,11 @@
+2018-08-28 01:07:20 [main] INFO  VodafoneAutotest.Logger.CustomLog - Test start time: 28/08/2018 01:07:20
+2018-08-28 01:07:20 [main] INFO  VodafoneAutotest.Logger.CustomLog - Step 1: Open Vodafone webpage: https://www.vodafone.cz/en/
+2018-08-28 01:07:27 [main] INFO  VodafoneAutotest.Logger.CustomLog - Step 2: Login to My Vodafone section
+2018-08-28 01:07:46 [main] INFO  VodafoneAutotest.Logger.CustomLog - Step 3: Log Credit for telephone number
+2018-08-28 01:07:46 [main] INFO  VodafoneAutotest.Logger.CustomLog - Credit for telephone number: 679,17 CZK
+2018-08-28 01:07:46 [main] INFO  VodafoneAutotest.Logger.CustomLog - Step 4: Go to My services – Calling & SMS
+2018-08-28 01:08:07 [main] INFO  VodafoneAutotest.Logger.CustomLog - Step 5: Select your number (773010016) in dropdown list
+2018-08-28 01:08:08 [main] INFO  VodafoneAutotest.Logger.CustomLog - Test end time: 28/08/2018 01:08:08
+2018-08-28 01:08:08 [main] ERROR VodafoneAutotest.Logger.CustomLog - Test skipped with reason: Impossible to change 'Missed Calls Alert' state, probably you have run this test recently. Try to run test later: got: "You will be able to change service settings once we process your request. Thank you.", expected: is not a string containing "You will be able to change service settings once we process your request. Thank you."
+2018-08-28 01:08:08 [main] ERROR VodafoneAutotest.Logger.CustomLog - Screenshot: D:\JavaProject\target\screenshots\28.08.2018\test[0](VodafoneAutotest.Tests.ChangeMissedCallAlertStateTest) 01-08-08.png
+2018-08-28 01:08:09 [main] INFO  VodafoneAutotest.Logger.CustomLog - --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
