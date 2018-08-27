@@ -27,6 +27,10 @@ public class CustomLog {
         log.error(text);
     }
 
+    public static void traceDebug(String text) {
+        log.debug(text);
+    }
+
     public static void traceErrorWithScreenshot(String text, BrowserDriver driver, String screenshotName) {
         String path = captureScreenshot(screenshotName, driver);
         int index = text.indexOf("(Session info");
@@ -38,7 +42,7 @@ public class CustomLog {
         }
         log.error(text.substring(0, index));
         if (path != null) {
-            log.error("Screenshot: " + System.getProperty("user.dir") + path);
+            log.info("Screenshot: " + System.getProperty("user.dir") + path);
         }
     }
 
