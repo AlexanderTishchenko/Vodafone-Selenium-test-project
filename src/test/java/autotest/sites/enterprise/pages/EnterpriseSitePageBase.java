@@ -1,7 +1,6 @@
 package autotest.sites.enterprise.pages;
 
 import autotest.core.BrowserDriver;
-import autotest.models.interfaces.Action;
 import autotest.models.PageBase;
 import autotest.sites.anonymous.pages.LogoutSuccessPage;
 import autotest.utilities.PageOpening;
@@ -29,12 +28,12 @@ public abstract class EnterpriseSitePageBase extends PageBase {
     public LogoutSuccessPage logOut() {
         _accountInformationButtom.hover();
         WebElement submenu = findElement(By.xpath(".//a[contains(text(),'Log out')]"));
-        Action func = () -> {
+        Runnable action = () -> {
             String js = "arguments[0].focus(); arguments[1].focus(); arguments[1].click();";
             Object[] args = {_accountInformationButtom.getWrappedElement(), submenu};
             browser.executeScript(js, args);
         };
-        return PageOpening.open(browser, func, LogoutSuccessPage.class, false);
+        return PageOpening.open(browser, action, LogoutSuccessPage.class, false);
     }
 
     @FindBy(css = "[data-s-object-id='menu:Home']")

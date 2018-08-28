@@ -6,7 +6,6 @@ import autotest.sites.enterprise.pages.EnterpriseSitePageBase;
 import autotest.sites.enterprise.elements.service.MainServiceBox;
 import autotest.sites.enterprise.elements.service.ServiceContentBox;
 import autotest.models.annotations.PageUri;
-import autotest.models.interfaces.Action;
 import autotest.utilities.PageOpening;
 import autotest.elements.complex.RowWithSubrow;
 import autotest.elements.simple.DropDownElement;
@@ -39,10 +38,10 @@ public class CallingAndSmsPage extends EnterpriseSitePageBase {
 
     public BasketPage toggleMissedCallsAlert() {
         Boolean serviceState = getMissedCallsAlertFrame().row.isActive();
-        Action func = () -> {
+        Runnable action = () -> {
             getMissedCallsAlertFrame().subrow.setState(!serviceState);
         };
-        return PageOpening.open(browser, func, BasketPage.class, false);
+        return PageOpening.open(browser, action, BasketPage.class, false);
     }
 
     private RowWithSubrow<MainServiceBox, ServiceContentBox> getMissedCallsAlertFrame() {
