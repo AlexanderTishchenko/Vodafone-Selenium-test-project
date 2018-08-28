@@ -1,7 +1,7 @@
 package autotest.sites.enterprise.pages;
 
 import autotest.core.BrowserDriver;
-import autotest.models.interfaces.FooFunctional;
+import autotest.models.interfaces.Action;
 import autotest.models.PageBase;
 import autotest.sites.anonymous.pages.LogoutSuccessPage;
 import autotest.utilities.PageOpening;
@@ -29,7 +29,7 @@ public abstract class EnterpriseSitePageBase extends PageBase {
     public LogoutSuccessPage logOut() {
         _accountInformationButtom.hover();
         WebElement submenu = findElement(By.xpath(".//a[contains(text(),'Log out')]"));
-        FooFunctional func = () -> {
+        Action func = () -> {
             String js = "arguments[0].focus(); arguments[1].focus(); arguments[1].click();";
             Object[] args = {_accountInformationButtom.getWrappedElement(), submenu};
             browser.executeScript(js, args);

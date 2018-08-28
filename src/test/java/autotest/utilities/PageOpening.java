@@ -1,7 +1,7 @@
 package autotest.utilities;
 
 import autotest.core.BrowserDriver;
-import autotest.models.interfaces.FooFunctional;
+import autotest.models.interfaces.Action;
 import autotest.models.interfaces.PageInterface;
 import autotest.elements.ElementBase;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,7 +17,7 @@ public class PageOpening {
     }
 
     public static <T extends PageInterface> T open(BrowserDriver driver, Class<T> pageClass, URI uri) {
-        FooFunctional func = () -> {
+        Action func = () -> {
             try {
                 driver.getWebDriver().navigate().to(uri.toURL());
             } catch (MalformedURLException e) {
@@ -31,11 +31,11 @@ public class PageOpening {
         return (T) open(driver, pageClass, () -> element.click(), inOtherTab);
     }
 
-    public static <T extends PageInterface> T open(BrowserDriver driver, FooFunctional actionToOpen, Class pageClass, Boolean inOtherTab) {
+    public static <T extends PageInterface> T open(BrowserDriver driver, Action actionToOpen, Class pageClass, Boolean inOtherTab) {
         return (T) open(driver, pageClass, actionToOpen, inOtherTab);
     }
 
-    private static PageInterface open(BrowserDriver driver, Class pageClass, FooFunctional actionToOpen, Boolean inOtherTab) {
+    private static PageInterface open(BrowserDriver driver, Class pageClass, Action actionToOpen, Boolean inOtherTab) {
         actionToOpen.invoke();
         try {
             return createPage(driver, pageClass, inOtherTab);

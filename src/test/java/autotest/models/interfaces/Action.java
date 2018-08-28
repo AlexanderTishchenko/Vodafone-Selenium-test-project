@@ -1,6 +1,6 @@
 package autotest.models.interfaces;
 
 @FunctionalInterface
-public interface FooFunctional {
+public interface Action {
     void invoke();
 }
