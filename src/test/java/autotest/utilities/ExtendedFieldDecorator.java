@@ -29,7 +29,6 @@ public class ExtendedFieldDecorator extends DefaultFieldDecorator {
                 return null;
             }
 
-
             if (List.class.isAssignableFrom(field.getType())) {
                 return createList(loader, locator, decoratableClass);
             }
@@ -40,7 +39,6 @@ public class ExtendedFieldDecorator extends DefaultFieldDecorator {
     }
 
     private Class<CustomWebElementInterface> decoratableClass(Field field) {
-
         Class<?> clazz = field.getType();
 
         if (List.class.isAssignableFrom(clazz)) {
@@ -65,14 +63,12 @@ public class ExtendedFieldDecorator extends DefaultFieldDecorator {
         }
     }
 
-    private CustomWebElementInterface createElement(ClassLoader loader,
-                                                    ElementLocator locator, Class<CustomWebElementInterface> clazz) {
+    private CustomWebElementInterface createElement(ClassLoader loader, ElementLocator locator, Class<CustomWebElementInterface> clazz) {
         WebElement proxy = proxyForLocator(loader, locator);
         return WrapperFactory.createInstance(clazz, proxy, elementContainer);
     }
 
     private List<CustomWebElementInterface> createList(ClassLoader loader, ElementLocator locator, Class<CustomWebElementInterface> clazz) {
-
         InvocationHandler handler = new LocatingCustomElementListHandler(locator, clazz, elementContainer);
         return (List<CustomWebElementInterface>) Proxy.newProxyInstance(loader, new Class[]{List.class}, handler);
     }

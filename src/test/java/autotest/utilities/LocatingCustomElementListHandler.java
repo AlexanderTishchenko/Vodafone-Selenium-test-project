@@ -22,8 +22,7 @@ public class LocatingCustomElementListHandler implements InvocationHandler {
         this.elementContainer = elementContainer;
     }
 
-    public Object invoke(Object object, Method method,
-                         Object[] objects) throws Throwable {
+    public Object invoke(Object object, Method method, Object[] objects) throws Throwable {
         List<WebElement> elements = locator.findElements();
         List<CustomWebElementInterface> customs = new ArrayList<>();
 
